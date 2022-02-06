@@ -1,24 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 .card {
-    margin: 1rem;
-    padding: 1.5rem;
-    text-align: center;
-    color: inherit;
-    text-decoration: none;
-    border: 1px solid #eaeaea;
-    border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-    width: 300px;
+  font-family: Didact Gothic;
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 350px;
+  box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.51);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.51);
   }
   
-  .card:hover,
-  .card:focus,
-  .card:active {
-    color: #0070f3;
-    border-color: #0070f3;
+  .cardDetailContainer{
+    background-color: rgba(255,255,255, 0.3);
   }
   
   .card h2 {
-    margin: 0 0 1rem 0;
     text-transform: capitalize;
     font-size: 1.5rem;
   }
@@ -28,14 +29,114 @@
     font-size: 1.25rem;
     line-height: 1.5;
   }
+
+  .pokeHeading {
+    padding: 0 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pokeName {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .type {
+    color: white;
+    padding: 5px;
+    border-radius: 5%;
+    text-transform: uppercase;
+  }
   
-  .card-image-container {
-    background-color: rgba(#000000, 0.7);
+  .cardImageContainer {
+    padding: 0 1em;
+  }
+
+  .imageBorder {
+    border: 4px solid black;
+    border-radius: 5px;
+    background-color: rgba(255,255,255, 0.3);
+  }
+  
+  .cardImage {
     text-align: center;
-    padding: 1em 1em 0;
-    border-radius: 3px 3px 0 0;
   }
   
   .card table {
-    width: 100%;
+    padding: 1em;
+    width: 300px;
+    font-size: 18px;
   }
+
+  .statName {
+    text-transform: capitalize;
+  }
+
+  /* type-specific colors */
+
+  .grass {
+    background-color: rgba(78,130,52);
+  }
+
+  .grass-border {
+    border: 4px solid rgba(120,200,80);
+  }
+
+  .grass-gradient-background {
+    background: linear-gradient(140deg, rgba(167,219,141,1) 0%, rgba(120,200,80,1) 35%, rgba(78,130,52,1) 100%);
+  }
+
+  .fire {
+    background-color: rgba(156,83,31);
+  }
+
+  .fire-border {
+    border: 4px solid  rgba(240,128,48);
+  }
+
+  .fire-gradient-background {
+    background: linear-gradient(140deg, rgba(245,172,120,1) 0%, rgba(240,128,48,1) 35%, rgba(156,83,31,1) 100%);
+  }
+
+  
+  .water {
+    background-color: rgba(68,94,156);
+  }
+
+  .water-border {
+    border: 4px solid  rgba(157,183,245,1);
+  }
+
+  .water-gradient-background {
+    background: linear-gradient(140deg, rgba(157,183,245,1) 0%, rgba(104,144,240,1) 35%, rgba(68,94,156,1) 100%);
+  }
+
+  .bug {
+    background-color: rgba(109,120,21,1);
+  }
+
+  .bug-border {
+    border: 4px solid  rgba(198,209,110,1);
+  }
+
+  .bug-gradient-background {
+    background: linear-gradient(140deg, rgba(198,209,110,1) 0%, rgba(168,184,32,1) 35%, rgba(109,120,21,1) 100%);
+  }
+
+  .normal {
+    background-color: rgba(109,109,78,1);
+  }
+
+  .normal-border {
+    border: 4px solid  rgba(198,198,167,1);
+  }
+
+  .normal-gradient-background {
+    background: linear-gradient(140deg, rgba(198,198,167,1) 0%, rgba(168,168,120,1) 35%, rgba(109,109,78,1) 100%);
+  }
+
+  
+
+
+

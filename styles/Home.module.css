@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  background-color: #444c57;
 }
 
 .main {
@@ -12,24 +13,7 @@
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
 .title a {
-  color: #0070f3;
   text-decoration: none;
 }
 
@@ -63,7 +47,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 1200px;
+  width: 80%;
 }
 
 
