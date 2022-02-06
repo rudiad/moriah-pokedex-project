@@ -2,9 +2,48 @@ import Head from 'next/head'
 import Image from 'next/image'
 import PokemonCard from '../components/PokemonCard';
 import styles from '../styles/Home.module.css'
+import React, { useState } from 'react';
 
-function Home({ data, results }) {
-  const pokemon = results;
+function Home({ data, results, types }) {
+  const [requestData, setData] = useState(data);
+  const [pokemon, setPokemon] = useState(results);
+  const [search, setSearch] = useState('');
+  const [filterType, setFilterType] = useState('');
+
+  async function fetchNextPage(url) {  
+    const res = await fetch(url);
+    const data = await res.json();
+  
+    let results = data.results.map(async (e) => {
+      const res = await fetch(e.url)
+      return await res.json();
+    });
+    results  = await Promise.all(results);
+  
+    setData(data);
+    setPokemon(results);
+
+    return results;
+  }
+
+  async function fetchByType(type) {  
+    setFilterType(type)
+    const res = await fetch(`https://pokeapi.co/api/v2/type/${type}/`);
+    const data = await res.json();
+  
+    console.log('fetchByType data = ', data);
+    
+    let results = data.results.map(async (e) => {
+      const res = await fetch(e.url)
+      return await res.json();
+    });
+    results  = await Promise.all(results);
+  
+    setData(data);
+    setPokemon(results);
+
+    return results;
+  }
 
   return (
     <div className={styles.container}>
@@ -15,11 +54,34 @@ function Home({ data, results }) {
       </Head>
 
       <main className={styles.main}>
-        <Image className="image-header" src="https://fontmeme.com/permalink/220206/49fa3bb07c026f08afccf83c00725097.png" alt="Pokedex in Pokemon font" border="0" width="300" height="100" />
+        <div className={styles.header}>
+          <div className={styles.headerContainer}> 
+            <Image src="https://fontmeme.com/permalink/220206/49fa3bb07c026f08afccf83c00725097.png" alt="Pokedex in Pokemon font" border="0" width="300" height="100" />
+          </div>
+
+          <div className={styles.searchContainer}>
+              <input placeholder='Search Pokemon' value={search} onChange={(e) => setSearch(e.target.value)}></input>
+              <select name="filter" id="filter" value={filterType} onChange={(e) => fetchByType(e.target.value)}>
+                {types && types.map((type) => {return <option key={type.name} value={type.name}>{type.name}</option>})}
+              </select>
+            </div>
+        </div>
         <div className={styles.grid}>
           {pokemon && pokemon.map((pokemon) => {
             return <PokemonCard key={pokemon.name} pokemon={pokemon} />
           })}
+        </div>
+        <div className={styles.paginationContainer}>
+          {requestData.previous &&
+          <button className={styles.paginationButton} onClick={() => {fetchNextPage(requestData.next)}}>
+            <Image src="/pokeball.png" width="50" height="50"></Image>
+            <div className={styles.paginationButtonText}>Prev</div>
+          </button>
+          }
+          <button className={styles.paginationButton} onClick={() => {fetchNextPage(requestData.next)}}>
+            <Image src="/pokeball.png" width="50" height="50"></Image>
+            <div className={styles.paginationButtonText}>Next</div>
+          </button>
         </div>
       </main>
     </div>
@@ -28,7 +90,7 @@ function Home({ data, results }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/`);
+  const res = await fetch('https://pokeapi.co/api/v2/pokemon/');
   const data = await res.json();
 
   let results = data.results.map(async (e) => {
@@ -37,11 +99,11 @@ export async function getServerSideProps() {
   });
   results  = await Promise.all(results);
   
-  console.log('data = ', data);
-  console.log('results = ', results);
-
+  const typeReq = await fetch('https://pokeapi.co/api/v2/type/');
+  const typesRes = await typeReq.json();
+  const types = typesRes.results;
   // Pass data to the page via props
-  return { props: { data, results } }
+  return { props: { data, results, types } }
 }
 
 export default Home
