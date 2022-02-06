@@ -15,29 +15,13 @@ function Home({ data, results }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to the pokedex
-        </h1>
-
+        <Image className="image-header" src="https://fontmeme.com/permalink/220206/49fa3bb07c026f08afccf83c00725097.png" alt="Pokedex in Pokemon font" border="0" width="300" height="100" />
         <div className={styles.grid}>
           {pokemon && pokemon.map((pokemon) => {
             return <PokemonCard key={pokemon.name} pokemon={pokemon} />
           })}
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
