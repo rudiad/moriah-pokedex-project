@@ -3,7 +3,6 @@ import styles from '../styles/PokemonCard.module.css'
 
 export default function PokemonCard({pokemon}) {
   const type = pokemon.types[0].type.name;
-  console.log('type = ', type);
   const typeBackgroundClass = styles[`${type}-gradient-background`];
   const typeClass = styles[`${type}`];
   const typeBorder = styles[`${type}-border`];
@@ -26,20 +25,14 @@ export default function PokemonCard({pokemon}) {
             {pokemon.stats.map((stats) => {
             return (
               <tr key={`${pokemon.name}-${stats.stat.name}`}>
-                <td>
-                  <th className={styles.statName}>{stats.stat.name.replace('-', ' ')}</th>
-                </td>
-                <td>
-                  <th>{stats.base_stat}</th>
-                </td>
+                <th className={styles.statName}>{stats.stat.name.replace('-', ' ')}</th>
+                <th>{stats.base_stat}</th>
               </tr>
             )
           })} 
           </tbody>
         </table>
-
         </div>
-
       </figure>
     )
 }
