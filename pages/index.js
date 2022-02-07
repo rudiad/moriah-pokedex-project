@@ -69,7 +69,7 @@ function Home({ data, init, types }) {
   }
 
   // Filter pokemon for fuzzy search of already loaded pokemon
-    // If the pokemon is on the page already it won't require a search submission
+  // If the pokemon is on the page already it won't require a search submission
   function filterBySearch(query) {
     setError(false);
     setSearch(query);
@@ -139,7 +139,7 @@ function Home({ data, init, types }) {
 
           {isLoading && 
             <div className={styles.loadingContainer}>   
-              <Image src="/pokeball-loading.gif" alt="" border="0" width="175" height="130" /> 
+              <Image src="/pokeball-loading.gif" alt="Pixel pokeball gif of different pokeball types" border="0" width="175" height="130" /> 
             </div>
           } 
           {error && <div className={styles.loadingContainer}>No results found</div>} 
