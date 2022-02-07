@@ -30,3 +30,13 @@ npm run start
 yarn start
 ```
 
+## Lighthouse Results:
+![LightHouse desktop results](/public/lighthouse-desktop.png?raw=true)
+![LightHouse mobile results](/public/lighthouse-mobile.png?raw=true)
+
+## Loom Demo
+
+## Futher Improvements
+- CSS variables for type colors
+- Mobile styling polish
+- If this was prod would also not be loading images from URLS
