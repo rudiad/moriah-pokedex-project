@@ -67,7 +67,17 @@ function Home({ data, init, types }) {
   }
 
   async function fetchSearch(name) {
+    let results;
     setIsLoading(true);
+    if(!name) {
+      let res = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+      let data = await res.json();
+      setData(data);
+      results = data.results.map(async (poke) => {
+        const res = await fetch(poke?.url)
+        return await res.json();
+    })}
+    else {
     await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(async (response) => {
       if(response.status === 404) {
         setResults(null);
@@ -78,7 +88,7 @@ function Home({ data, init, types }) {
         setData(data);
         setResults([data]);
       }
-    })
+    })} 
     setIsLoading(false);
   }
 
@@ -100,7 +110,7 @@ function Home({ data, init, types }) {
           <div className={styles.searchContainer}>
             <div className={styles.inputContainer}>
               <input id="search" placeholder='Search Pokemon' value={search} onChange={(e) => filterBySearch(e.target.value)} onKeyDown={(e) => {if (e.key === 'Enter') {{setIsLoading(true); fetchSearch(search)}}}}/>
-              <button type="submit" onClick={() => {setIsLoading(true); fetchSearch(search)}}>Search</button>
+              <button className={styles.searchButton} type="submit" onClick={() => {setIsLoading(true); fetchSearch(search)}}>Search</button>
             </div>
             <div className={styles.filterContainer}>
               <label htmlFor="search">Filter by Type: </label>
