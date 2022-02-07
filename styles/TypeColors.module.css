@@ -1,4 +1,7 @@
-  /* type-specific colors */
+  /* 
+    Type-specific colors 
+    If I had more time I would definitely refactor this using CSS variables
+  */
 
   .grass {
     background-color: rgba(78,130,52);
@@ -107,4 +110,114 @@
 
   .ground-gradient-background {
     background: linear-gradient(140deg, rgba(235,214,157,1) 0%, rgba(224,192,104,1) 35%, rgba(146,125,68,1) 100%);
+  }
+
+  .rock {
+    background-color: rgba(120,104,36,1);
+  }
+
+  .rock-border {
+    border: 4px solid rgba(209,193,125,1);
+  }
+
+  .rock-gradient-background {
+    background: linear-gradient(140deg, rgba(209,193,125,1) 0%, rgba(184,160,56,1) 35%, rgba(120,104,36,1) 100%);
+  }
+
+  .ghost {
+    background-color: rgba(73,57,99,1);
+  }
+
+  .ghost-border {
+    border: 4px solid rgba(162,146,188,1);
+  }
+
+  .ghost-gradient-background {
+    background: linear-gradient(140deg, rgba(162,146,188,1) 0%, rgba(112,88,152,1) 35%, rgba(73,57,99,1) 100%);
+  }
+
+  .steel {
+    background-color: rgba(120,120,135,1);
+  }
+
+  .steel-border {
+    border: 4px solid rgba(209,209,224,1);
+  }
+
+  .steel-gradient-background {
+    background: linear-gradient(140deg, rgba(209,209,224,1) 0%, rgba(184,184,208,1) 35%, rgba(120,120,135,1) m ,.100%);
+
+  }
+
+  .electric {
+    background-color: rgba(161,135,31,1);
+  }
+
+  .electric-border {
+    border: 4px solid rgba(250,224,120,1);
+  }
+
+  .electric-gradient-background {
+    background: linear-gradient(140deg, rgba(250,224,120,1) 0%, rgba(248,208,48,1) 35%, rgba(161,135,31,1) 100%);
+  }
+
+
+  .psychic {
+    background-color: rgba(161,57,89,1);
+  }
+
+  .psychic-border {
+    border: 4px solid rgba(250,146,178,1);
+  }
+
+  .psychic-gradient-background {
+    background: linear-gradient(140deg, rgba(250,146,178,1) 0%, rgba(248,88,136,1) 35%, rgba(161,57,89,1) 100%);
+  }
+
+  .ice {
+    background-color: rgba(99,141,141,1);
+  }
+
+  .ice-border {
+    border: 4px solid rgba(188,230,230,1);
+  }
+
+  .ice-gradient-background {
+    background: linear-gradient(140deg, rgba(188,230,230,1) 0%, rgba(152,216,216,1) 35%, rgba(99,141,141,1) 100%);
+  }
+
+  .dragon {
+    background-color: rgba(112,56,248,1);
+  }
+
+  .dragon-border {
+    border: 4px solid rgba(162,125,250,1);
+  }
+
+  .dragon-gradient-background {
+    background: linear-gradient(140deg, rgba(162,125,250,1) 0%, rgba(112,56,248,1) 35%, rgba(73,36,161,1) 100%);
+  }
+
+  .dark {
+    background-color: rgba(73,57,47,1);
+  }
+
+  .dark-border {
+    border: 4px solid rgba(162,146,136,1);
+  }
+
+  .dark-gradient-background {
+    background: linear-gradient(140deg, rgba(162,146,136,1) 0%, rgba(112,88,72,1) 35%, rgba(73,57,47,1) 100%);
+  }
+
+  .fairy {
+    background-color: rgba(155,100,112,1);
+  }
+
+  .fairy-border {
+    border: 4px solid rgba(244,189,201,1)
+  }
+
+  .fairy-gradient-background {
+    background: linear-gradient(140deg, rgba(244,189,201,1) 0%, rgba(238,153,172,1) 35%, rgba(155,100,112,1) 100%);
   }
