@@ -93,7 +93,7 @@ function Home({ data, init, types }) {
         <main className={styles.main}>
           <div className={styles.header}>
             <div className={styles.headerContainer}> 
-              <Image src="https://fontmeme.com/permalink/220206/49fa3bb07c026f08afccf83c00725097.png" alt="Pokedex in Pokemon font" border="0" width="300" height="100" />
+              <Image src="/logo.png" alt="Pokedex in Pokemon font" border="0" width="300" height="100" />
             </div>
           </div>
 
