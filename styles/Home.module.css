@@ -3,6 +3,7 @@
 .container {
   font-family: Didact Gothic;
   background-color: #444c57;
+  font-display: swap;
 }
 
 .main {
@@ -10,8 +11,13 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -27,11 +33,20 @@
   margin: auto;
 }
 
+.filter select option {text-transform:capitalize}
+
 .searchContainer {
-  margin-top: 2em;
+  width: 100%;
+  background-color: white;
+  height: 5vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+
+.inputContainer {
+  margin-right: 20px;
 }
 
 .searchContainer input {
@@ -40,7 +55,7 @@
   height: 30px;
   font-size: inherit;
   padding-left: 5px;
-  margin-right: 100px;
+  margin-right: 10px;
 }
 
 
@@ -51,6 +66,7 @@
   font-size: inherit;
   padding-left: 5px;
   margin-right: 100px;
+  font-display: swap;
 }
 
 

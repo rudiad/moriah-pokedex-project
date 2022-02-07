@@ -1,0 +1,110 @@
+  /* type-specific colors */
+
+  .grass {
+    background-color: rgba(78,130,52);
+  }
+
+  .grass-border {
+    border: 4px solid rgba(120,200,80);
+  }
+
+  .grass-gradient-background {
+    background: linear-gradient(140deg, rgba(167,219,141,1) 0%, rgba(120,200,80,1) 35%, rgba(78,130,52,1) 100%);
+  }
+
+  .fire {
+    background-color: rgba(156,83,31);
+  }
+
+  .fire-border {
+    border: 4px solid  rgba(240,128,48);
+  }
+
+  .fire-gradient-background {
+    background: linear-gradient(140deg, rgba(245,172,120,1) 0%, rgba(240,128,48,1) 35%, rgba(156,83,31,1) 100%);
+  }
+
+  
+  .water {
+    background-color: rgba(68,94,156);
+  }
+
+  .water-border {
+    border: 4px solid  rgba(157,183,245,1);
+  }
+
+  .water-gradient-background {
+    background: linear-gradient(140deg, rgba(157,183,245,1) 0%, rgba(104,144,240,1) 35%, rgba(68,94,156,1) 100%);
+  }
+
+  .bug {
+    background-color: rgba(109,120,21,1);
+  }
+
+  .bug-border {
+    border: 4px solid  rgba(198,209,110,1);
+  }
+
+  .bug-gradient-background {
+    background: linear-gradient(140deg, rgba(198,209,110,1) 0%, rgba(168,184,32,1) 35%, rgba(109,120,21,1) 100%);
+  }
+
+  .normal {
+    background-color: rgba(109,109,78,1);
+  }
+
+  .normal-border {
+    border: 4px solid  rgba(198,198,167,1);
+  }
+
+  .normal-gradient-background {
+    background: linear-gradient(140deg, rgba(198,198,167,1) 0%, rgba(168,168,120,1) 35%, rgba(109,109,78,1) 100%);
+  }
+
+  .fighting {
+    background-color: rgba(125,31,26,1);
+  }
+
+  .fighting-border {
+    border: 4px solid  rgba(214,120,115,1) ;
+  }
+  
+  .fighting-gradient-background {
+    background: linear-gradient(140deg, rgba(214,120,115,1) 0%, rgba(192,48,40,1) 35%, rgba(125,31,26,1) 100%);
+  }
+
+  .flying {
+    background-color: rgba(109,94,156,1);
+  }
+
+  .flying-border {
+    border: 4px solid  rgba(198,183,245,1);
+  }
+
+  .flying-gradient-background {
+    background: linear-gradient(140deg, rgba(198,183,245,1) 0%, rgba(168,144,240,1) 35%, rgba(109,94,156,1) 100%);
+  }
+
+  .poison {
+    background-color: rgba(104,42,104,1);
+  }
+
+  .poison-border {
+    border: 4px solid rgba(193,131,193,1);
+  }
+
+  .poison-gradient-background {
+    background: linear-gradient(140deg, rgba(193,131,193,1) 0%, rgba(160,64,160,1) 35%, rgba(104,42,104,1) 100%);
+  }
+
+  .ground {
+    background-color: rgba(146,125,68,1);
+  }
+
+  .ground-border {
+    border: 4px solid rgba(235,214,157,1);
+  }
+
+  .ground-gradient-background {
+    background: linear-gradient(140deg, rgba(235,214,157,1) 0%, rgba(224,192,104,1) 35%, rgba(146,125,68,1) 100%);
+  }
