@@ -35,7 +35,7 @@ yarn start
 ![LightHouse mobile results](/public/lighthouse-mobile.png?raw=true)
 
 ## Loom Demo
-
+https://www.loom.com/share/efbec51bb0894b3e839385663c1059c7
 ## Futher Improvements
 - CSS variables for type colors
 - Mobile styling polish
