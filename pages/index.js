@@ -56,7 +56,7 @@ function Home({ data, init, types }) {
   
     setPokemon(results);
     setResults(results);
-    // setIsLoading(false);
+    setIsLoading(false);
   }
 
   function filterBySearch(query) {
