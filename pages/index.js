@@ -5,14 +5,20 @@ import styles from '../styles/Home.module.css'
 import React, { useState } from 'react';
 
 function Home({ data, init, types }) {
+  // Keep request data in the state to keep pagination links
   const [requestData, setData] = useState(data);
+  // Unfiltered list of pokemon
   const [pokemon, setPokemon] = useState(init);
-  const [results, setResults] = useState([]);
+  // Filtered pokemon based on search input field
+  const [results, setResults] = useState(null);
+  // Set initial search and filter parameters to empty string
   const [search, setSearch] = useState('');
   const [filterType, setFilterType] = useState('');
+  // Set booleans for loading flag and error
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
+  // Helper function for pagination
   async function fetchNextPage(url) {  
     setError(false);
     const res = await fetch(url);
@@ -30,6 +36,7 @@ function Home({ data, init, types }) {
     return results;
   }
 
+  // Helper function that fetches pokemon based on their type
   async function fetchByType(type) {  
     setError(false);
     setFilterType(type)
@@ -43,7 +50,9 @@ function Home({ data, init, types }) {
         const res = await fetch(poke?.pokemon?.url)
         return await res.json();
       });
-    } else {
+    }
+    // default request for all types  
+    else {
       res = await fetch(`https://pokeapi.co/api/v2/pokemon`);
       let data = await res.json();
       setData(data);
@@ -59,6 +68,8 @@ function Home({ data, init, types }) {
     setIsLoading(false);
   }
 
+  // Filter pokemon for fuzzy search of already loaded pokemon
+    // If the pokemon is on the page already it won't require a search submission
   function filterBySearch(query) {
     setError(false);
     setSearch(query);
@@ -66,9 +77,13 @@ function Home({ data, init, types }) {
     setResults(results);
   }
 
+  // Fetch pokemon for full name query + submission
+  // This is a workaround for the API limiting to 20 results at a time
+  // If the pokemon is on the page already it won't require a new search
   async function fetchSearch(name) {
     let results;
     setIsLoading(true);
+    // default to returning all pokemon if the user enters an empty search query
     if(!name) {
       let res = await fetch(`https://pokeapi.co/api/v2/pokemon`);
       let data = await res.json();
@@ -78,17 +93,17 @@ function Home({ data, init, types }) {
         return await res.json();
     })}
     else {
-    await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(async (response) => {
-      if(response.status === 404) {
-        setResults(null);
-        setError(true);
-        setIsLoading(false);
-      } else {
-        let data = await response.json();
-        setData(data);
-        setResults([data]);
-      }
-    })} 
+      await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(async (response) => {
+        if(response.status === 404) {
+          setResults(null);
+          setError(true);
+          setIsLoading(false);
+        } else {
+          let data = await response.json();
+          setData(data);
+          setResults([data]);
+        }
+      })} 
     setIsLoading(false);
   }
 
@@ -156,21 +171,27 @@ function Home({ data, init, types }) {
   )
 }
 
+// Take advantage of SSR for initial load
 export async function getServerSideProps() {
-  // Fetch data from external API
+  // Fetch initial data, 20 pokemon are returned
   const res = await fetch('https://pokeapi.co/api/v2/pokemon/');
   const data = await res.json();
 
+  // The API is structured to return {name, url}, where the URL is the API endpoint for that pokemon,
+  // So do another batch of requests to actually get the pokemon data to fill the cards.
   let results = data.results.map(async (e) => {
     const res = await fetch(e.url)
     return await res.json();
   });
   results  = await Promise.all(results);
 
+  // Request to grab pokemon types
   const typeReq = await fetch('https://pokeapi.co/api/v2/type/');
   const typesRes = await typeReq.json();
-  const types = typesRes.results;
-  // Pass data to the page via props
+
+  // The last two types return no results so splicing to avoid empty categories
+  const types = typesRes.results.splice(0, (results.length - 2))
+
   return { props: { data, init: results, types} }
 }
 
