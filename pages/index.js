@@ -56,7 +56,7 @@ function Home({ data, init, types }) {
   
     setPokemon(results);
     setResults(results);
-    setIsLoading(false);
+    // setIsLoading(false);
   }
 
   function filterBySearch(query) {
@@ -69,7 +69,6 @@ function Home({ data, init, types }) {
   async function fetchSearch(name) {
     setIsLoading(true);
     await fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(async (response) => {
-      console.log('response = ', response);
       if(response.status === 404) {
         setResults(null);
         setError(true);
@@ -114,8 +113,8 @@ function Home({ data, init, types }) {
           </div>
 
           {isLoading && 
-            <div className={styles.loadingContainer}>              
-              <Image src="https://fontmeme.com/permalink/220206/49fa3bb07c026f08afccf83c00725097.png" alt="Pokedex in Pokemon font" border="0" width="300" height="100" />
+            <div className={styles.loadingContainer}>   
+              <Image src="/pokeball-loading.gif" alt="" border="0" width="175" height="130" /> 
             </div>
           } 
           {error && <div className={styles.loadingContainer}>No results found</div>} 

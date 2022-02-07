@@ -18,6 +18,7 @@
 .loadingContainer {
   display: flex;
   flex-direction: column;
+  flex-grow: 2;
 }
 
 .header {
@@ -33,7 +34,11 @@
   margin: auto;
 }
 
-.filter select option {text-transform:capitalize}
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .searchContainer {
   width: 100%;
